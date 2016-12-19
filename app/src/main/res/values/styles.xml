@@ -1,11 +1,33 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Settings">`
+        <item name="android:divider">@color/colorAccentDark</item>
+        <item name="android:dividerHeight">@dimen/activity_vertical_margin</item>
+        <item name="android:textColorPrimary">@color/colorGreyLight</item>
+        <item name="android:textColorTertiary">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/colorWhite</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- ImageView -->
+    <style name="ImageView">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:paddingRight">10dp</item>
     </style>
 
 </resources>
