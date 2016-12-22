@@ -11,8 +11,9 @@ import com.example.nurud.moviestl.model.Movie;
  */
 public class Router {
 
-    public static void goToMovieDetail(Activity activity, Movie movie){
+    public static void goToMovieDetail(Activity activity, Movie movie) {
         Intent intent = new Intent(activity, MovieDetailActivity.class);
+        intent.putExtra(MovieDetailActivity.BUNDLE_MOVIE, movie);
         activity.startActivity(intent);
     }
 }
