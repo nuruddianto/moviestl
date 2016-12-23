@@ -31,7 +31,6 @@
     </style>
 
     <!-- Text View-->
-
     <style name="TextView" parent="android:Widget.TextView">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
@@ -54,4 +53,9 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
+    <!-- TextAppearance.Design.Tab is the default used in the Design Library -->
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
 </resources>

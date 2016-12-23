@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.nurud.moviestl.R;
-import com.example.nurud.moviestl.adapter.MoviesAdapter;
+import com.example.nurud.moviestl.adapter.TopRatedAdapter;
 import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieResponse;
 import com.example.nurud.moviestl.rest.BaseApiClient;
@@ -31,7 +31,7 @@ public class TopRatedFragment extends Fragment {
 
     private static final String TAG = TopRatedFragment.class.getSimpleName();
     private final static String API_KEY = "57eb0744e12fae2247350bc2bc8b2cc5";
-    private MoviesAdapter mMoviesAdapter;
+    private TopRatedAdapter mTopRatedAdapter;
 
     public TopRatedFragment() {
         // Required empty public constructor
@@ -61,8 +61,8 @@ public class TopRatedFragment extends Fragment {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movies = response.body().getResults();
-                mMoviesAdapter = new MoviesAdapter(movies, R.layout.item_movie, getContext());
-                mMovieRecycler.setAdapter(mMoviesAdapter);
+                mTopRatedAdapter = new TopRatedAdapter(movies, R.layout.item_movie, getContext());
+                mMovieRecycler.setAdapter(mTopRatedAdapter);
                 Log.d(TAG, "Jumlah movie yang didapat:"+ movies.size());
             }
 

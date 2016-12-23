@@ -23,7 +23,7 @@ import java.util.List;
  * Created by nurud on 18/12/2016.
  */
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
+public class TopRatedAdapter extends RecyclerView.Adapter<TopRatedAdapter.MovieViewHolder> {
     private List<Movie> movies;
     private int rowLayout;
     private Context mContext;
@@ -47,7 +47,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         }
     }
 
-    public MoviesAdapter(List<Movie> movies, int rowLayout, Context mContext) {
+    public TopRatedAdapter(List<Movie> movies, int rowLayout, Context mContext) {
         this.movies = movies;
         this.rowLayout = rowLayout;
         this.mContext = mContext;
@@ -63,7 +63,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     @Override
     public void onBindViewHolder(final MovieViewHolder holder, final int position) {
         RequestCreator requestCreator;
-        int defaultBannerDrawable = R.mipmap.img_movie_default_1x1;
+        int defaultBannerDrawable = R.drawable.ic_movie_ciano_24px;
 
         if (movies.get(position).getPosterPath() != null) {
             requestCreator = Picasso.with(holder.movieImage.getContext()).load(Uri.parse("http://image.tmdb.org/t/p/w500" + movies.get(position).getPosterPath()));
