@@ -10,13 +10,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.adapter.TopRatedAdapter;
 import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieResponse;
-import com.example.nurud.moviestl.rest.BaseApiClient;
 import com.example.nurud.moviestl.rest.ApiInterface;
+import com.example.nurud.moviestl.rest.BaseApiClient;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class TopRatedFragment extends Fragment {
 
         ApiInterface ApiInterface = BaseApiClient.getClient().create(ApiInterface.class);
 
-        final RecyclerView mMovieRecycler = (RecyclerView)view.findViewById(R.id.movie_recycler);
+        final RecyclerView mMovieRecycler = (RecyclerView) view.findViewById(R.id.movie_recycler);
         mMovieRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         Call<MovieResponse> call = ApiInterface.getTopRatedMovies(API_KEY);
@@ -63,12 +64,13 @@ public class TopRatedFragment extends Fragment {
                 List<Movie> movies = response.body().getResults();
                 mTopRatedAdapter = new TopRatedAdapter(movies, R.layout.item_movie, getContext());
                 mMovieRecycler.setAdapter(mTopRatedAdapter);
-                Log.d(TAG, "Jumlah movie yang didapat:"+ movies.size());
+                Log.d(TAG, "Jumlah movie yang didapat:" + movies.size());
             }
 
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
                 Log.e(TAG, t.toString());
+                Toast.makeText(getContext(), "Fail to get top rated movie", Toast.LENGTH_LONG);
             }
         });
     }

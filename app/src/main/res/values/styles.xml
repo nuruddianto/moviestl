@@ -3,15 +3,16 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorGrey</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
     </style>
 
     <style name="AppTheme.NoActionBar.Settings">`
         <item name="android:divider">@color/colorAccentDark</item>
         <item name="android:dividerHeight">@dimen/activity_vertical_margin</item>
-        <item name="android:textColorPrimary">@color/colorGreyLight</item>
+        <item name="android:textColorPrimary">@color/colorBlack</item>
         <item name="android:textColorTertiary">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/colorWhite</item>
     </style>
@@ -20,6 +21,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <!-- Base application theme. -->
+
 
     <!-- ImageView -->
     <style name="ImageView">
@@ -49,7 +53,6 @@
         <item name="android:maxLines">4</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20dp</item>
-        <item name="android:paddingBottom">20dp</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 

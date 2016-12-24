@@ -37,7 +37,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.setContentView(layoutResID);
         ButterKnife.inject(this);
         if (mToolbar != null) {
-            mToolbar.setTitleTextColor(Color.WHITE);
+            mToolbar.setTitle(getString(R.string.movie_detail));
+            mToolbar.setTitleTextColor(Color.BLACK);
             setSupportActionBar(mToolbar);
         }
         mActionBar = getSupportActionBar();

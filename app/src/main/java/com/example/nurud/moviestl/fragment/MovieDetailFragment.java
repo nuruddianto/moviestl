@@ -80,7 +80,7 @@ public class MovieDetailFragment extends Fragment {
         if (mCurrentMovie == null) {
             return;
         }
-        int defaultImageDrawable = R.drawable.img_promo_banner_2x1_default;
+        int defaultImageDrawable = R.drawable.icon_app_movie_ciano;
         Picasso.with(mActivity).load(Uri.parse("http://image.tmdb.org/t/p/w500" + mCurrentMovie.getBackdropPath()))
                 .placeholder(defaultImageDrawable)
                 .noFade()

@@ -10,4 +10,12 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGrey">#707070</color>
     <color name="colorGreyLight">#8A8A8A</color>
+
+    <!--Teal Theme Color-->
+    <color name="colorPrimaryTeal">#00695C</color>
+    <color name="colorPrimaryDarkTeal">#004D40</color>
+    <color name="colorAccentTeal">#FFFF00</color>
+
+    <color name="colorAccentGreen">#4caf50</color>
+
 </resources>

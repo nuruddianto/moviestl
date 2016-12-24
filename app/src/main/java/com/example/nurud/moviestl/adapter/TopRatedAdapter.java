@@ -72,13 +72,12 @@ public class TopRatedAdapter extends RecyclerView.Adapter<TopRatedAdapter.MovieV
         }
 
         requestCreator.placeholder(defaultBannerDrawable)
-                .error(defaultBannerDrawable)
                 .noFade()
                 .fit()
                 .into(holder.movieImage);
 
         holder.movieTitle.setText(movies.get(position).getTitle());
-        holder.subtitle.setText(movies.get(position).getReleasDate());
+        holder.subtitle.setText(String.format(movies.get(position).getReleasDate()));
         holder.movieDescription.setText(movies.get(position).getOverview());
         holder.rating.setText(String.valueOf(movies.get(position).getVoteAverage()));
 

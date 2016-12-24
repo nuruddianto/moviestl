@@ -23,10 +23,11 @@
                 <ImageView
                     android:id="@+id/img_movie_2x1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="250dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/img_promo_banner_2x1_default" />
+                    android:background="@color/colorGrey"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_app_movie_ciano" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
