@@ -2,7 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="380dp"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
     <RelativeLayout
@@ -12,21 +12,22 @@
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/thumbnail"
             android:layout_width="fill_parent"
-            android:layout_height="250dp">
+            android:layout_height="200dp">
 
             <ImageView
                 android:id="@+id/image_upcoming"
                 android:layout_width="fill_parent"
-                android:layout_height="250dp"
+                android:layout_height="210dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
-                android:background="@color/colorGrey"
+                android:background="@color/colorGreyLight"
                 android:scaleType="fitCenter"
                 android:src="@drawable/icon_app_movie_ciano" />
 
             <TextView
                 android:id="@+id/title_upcoming_movie"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/image_upcoming"
                 android:layout_alignParentBottom="true"
@@ -36,6 +37,7 @@
                 android:layout_marginLeft="20dp"
                 android:text="Batman The Dark Knight"
                 android:textColor="@color/colorWhite"
+                android:background="#80000000"
                 android:textSize="22dp"
                 android:textStyle="bold" />
 
@@ -45,12 +47,11 @@
             android:id="@+id/release_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingLeft="20dp"
             android:layout_below="@+id/thumbnail"
-            android:maxLines="3"
-            android:padding="8dp"
-            android:textColor="#222"
-            android:textSize="17dp" />
-
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,8 +69,8 @@
 
                 <ImageView
                     android:id="@+id/rating_image"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/star"
@@ -99,8 +100,8 @@
 
                 <ImageView
                     android:id="@+id/vote_count_image"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center_horizontal"
                     android:scaleType="fitXY"
