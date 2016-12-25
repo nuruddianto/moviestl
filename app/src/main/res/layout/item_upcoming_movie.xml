@@ -73,7 +73,7 @@
                     android:layout_centerInParent="true"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/star"
-                    android:tint="@color/orange" />
+                    android:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/movie_upcoming_rating"
