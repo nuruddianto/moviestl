@@ -18,6 +18,7 @@ import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieResponse;
 import com.example.nurud.moviestl.rest.ApiInterface;
 import com.example.nurud.moviestl.rest.BaseApiClient;
+import com.example.nurud.moviestl.rest.RestConstant;
 
 import java.util.List;
 
@@ -31,7 +32,6 @@ import retrofit2.Response;
 public class UpcomingFragment extends Fragment {
 
     private static final String TAG = TopRatedFragment.class.getSimpleName();
-    private final static String API_KEY = "57eb0744e12fae2247350bc2bc8b2cc5";
     private UpcomingAdapter mUpcomingAdapter;
 
     public UpcomingFragment() {
@@ -57,7 +57,7 @@ public class UpcomingFragment extends Fragment {
         final RecyclerView mUpcomingRecycler = (RecyclerView) view.findViewById(R.id.upcoming_recycler);
         mUpcomingRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        Call<MovieResponse> call = ApiInterface.getUpcominMovies(API_KEY);
+        Call<MovieResponse> call = ApiInterface.getUpcominMovies(RestConstant.API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {

@@ -20,10 +20,10 @@ public class DashboardViewPagerAdapter extends FragmentPagerAdapter {
 
     public DashboardViewPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
-        mFragmnets.add(new TopRatedFragment());
-        mTitleFragment.add("Top 50");
         mFragmnets.add(new UpcomingFragment());
         mTitleFragment.add("Upcoming");
+        mFragmnets.add(new TopRatedFragment());
+        mTitleFragment.add("Top 20");
     }
 
     @Override

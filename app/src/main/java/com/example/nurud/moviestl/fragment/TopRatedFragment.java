@@ -18,6 +18,7 @@ import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieResponse;
 import com.example.nurud.moviestl.rest.ApiInterface;
 import com.example.nurud.moviestl.rest.BaseApiClient;
+import com.example.nurud.moviestl.rest.RestConstant;
 
 import java.util.List;
 
@@ -31,7 +32,6 @@ import retrofit2.Response;
 public class TopRatedFragment extends Fragment {
 
     private static final String TAG = TopRatedFragment.class.getSimpleName();
-    private final static String API_KEY = "57eb0744e12fae2247350bc2bc8b2cc5";
     private TopRatedAdapter mTopRatedAdapter;
 
     public TopRatedFragment() {
@@ -57,12 +57,12 @@ public class TopRatedFragment extends Fragment {
         final RecyclerView mMovieRecycler = (RecyclerView) view.findViewById(R.id.movie_recycler);
         mMovieRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        Call<MovieResponse> call = ApiInterface.getTopRatedMovies(API_KEY);
+        Call<MovieResponse> call = ApiInterface.getTopRatedMovies(RestConstant.API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movies = response.body().getResults();
-                mTopRatedAdapter = new TopRatedAdapter(movies, R.layout.item_movie, getContext());
+                mTopRatedAdapter = new TopRatedAdapter(movies, R.layout.item_top_rated_movie, getContext());
                 mMovieRecycler.setAdapter(mTopRatedAdapter);
                 Log.d(TAG, "Jumlah movie yang didapat:" + movies.size());
             }
