@@ -43,10 +43,6 @@ public class Movie implements Parcelable {
     @SerializedName("poster_path")
     private String posterPath;
 
-    public Movie() {
-
-    }
-
     public Movie(Parcel parcel) {
         voteAverage = parcel.readDouble();
         video = parcel.readByte() != 0;
@@ -65,21 +61,21 @@ public class Movie implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeDouble(voteAverage);
-        dest.writeByte((byte) (video ? 1 : 0));
-        dest.writeInt(voteCount);
-        dest.writeDouble(popularity);
-        dest.writeString(backdropPath);
-        dest.writeString(title);
-        dest.writeString(originalLanguage);
-        dest.writeString(originalTitle);
-        dest.writeList(genreIds);
-        dest.writeInt(id);
-        dest.writeString(releasDate);
-        dest.writeString(overview);
-        dest.writeByte((byte) (adult ? 1 : 0));
-        dest.writeString(posterPath);
+    public void writeToParcel(Parcel destination, int flags) {
+        destination.writeDouble(voteAverage);
+        destination.writeByte((byte) (video ? 1 : 0));
+        destination.writeInt(voteCount);
+        destination.writeDouble(popularity);
+        destination.writeString(backdropPath);
+        destination.writeString(title);
+        destination.writeString(originalLanguage);
+        destination.writeString(originalTitle);
+        destination.writeList(genreIds);
+        destination.writeInt(id);
+        destination.writeString(releasDate);
+        destination.writeString(overview);
+        destination.writeByte((byte) (adult ? 1 : 0));
+        destination.writeString(posterPath);
     }
 
     public double getVoteAverage() {

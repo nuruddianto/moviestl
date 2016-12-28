@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.Router;
+import com.example.nurud.moviestl.Utility.DateFormatter;
 import com.example.nurud.moviestl.model.Movie;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
@@ -79,7 +80,8 @@ public class TopRatedAdapter extends RecyclerView.Adapter<TopRatedAdapter.MovieV
 
         holder.topRatedNumber.setText(String.valueOf(position + 1 + ". "));
         holder.topRatedTitle.setText(movies.get(position).getTitle());
-        holder.releaseDate.setText(String.format(movies.get(position).getReleasDate()));
+        DateFormatter dateFormatter = new DateFormatter(movies.get(position).getReleasDate());
+        holder.releaseDate.setText(dateFormatter.doFormat(mContext));
         holder.voteCountTopRated.setText(String.valueOf(movies.get(position).getVoteCount()));
         holder.ratingTopRated.setText(String.valueOf(movies.get(position).getVoteAverage()));
 

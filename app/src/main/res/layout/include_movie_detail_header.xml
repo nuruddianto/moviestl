@@ -14,7 +14,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
-            android:background="@drawable/border"
             android:orientation="vertical"
             android:padding="5dp">
 
@@ -46,7 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="0.5"
-            android:background="@drawable/border"
             android:orientation="vertical"
             android:padding="5dp">
 

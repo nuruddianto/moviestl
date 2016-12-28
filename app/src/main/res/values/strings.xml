@@ -5,6 +5,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dummy_string">Hello blank fragment Hello blank fragment Hello blank fragment Hello blank fragment Hello blank fragment</string>
     <string name="movie_timeline">Movie Timeline</string>
+
     <string name="movie_release_date">Release : %1$s</string>
     <string name="movie_detail">Movie Detail</string>
+
+    <string name="error_date_input_format">Unknown Date Format</string>
+
+    <!--Video Type-->
+    <string name="youtube">YouTube</string>
+
+    <!--URL-->
+    <string name="youtube_url">https://www.youtube.com/watch?v=%1$s</string>
 </resources>

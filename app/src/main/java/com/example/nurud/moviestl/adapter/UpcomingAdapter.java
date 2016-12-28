@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.Router;
+import com.example.nurud.moviestl.Utility.DateFormatter;
 import com.example.nurud.moviestl.model.Movie;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
@@ -76,7 +77,8 @@ public class UpcomingAdapter extends RecyclerView.Adapter<UpcomingAdapter.CardVi
                 .into(holder.upcomingImage);
 
         holder.titleUpcomingMovie.setText(mUpcomingMovies.get(position).getTitle());
-        holder.releaseDate.setText(String.format(mContext.getString(R.string.movie_release_date), mUpcomingMovies.get(position).getReleasDate()));
+        DateFormatter dateFormatter = new DateFormatter(mUpcomingMovies.get(position).getReleasDate());
+        holder.releaseDate.setText(String.format(mContext.getString(R.string.movie_release_date), dateFormatter.doFormat(mContext)));
         holder.ratingUpcoming.setText(String.valueOf(mUpcomingMovies.get(position).getVoteAverage()));
         holder.popularityUpcoming.setText(String.valueOf(mUpcomingMovies.get(position).getPopularity()));
 

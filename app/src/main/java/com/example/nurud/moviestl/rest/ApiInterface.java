@@ -1,6 +1,7 @@
 package com.example.nurud.moviestl.rest;
 
 import com.example.nurud.moviestl.model.MovieResponse;
+import com.example.nurud.moviestl.model.MovieVideoResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -20,4 +21,7 @@ public interface ApiInterface {
 
     @GET("movie/upcoming")
     Call<MovieResponse> getUpcominMovies(@Query("api_key") String apiKey);
+
+    @GET("movie/{id}/videos")
+    Call<MovieVideoResponse> getMovieVideo(@Path("id") int id, @Query("api_key") String apiKey);
 }

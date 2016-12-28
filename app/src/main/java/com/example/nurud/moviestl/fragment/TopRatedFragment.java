@@ -52,12 +52,11 @@ public class TopRatedFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ApiInterface ApiInterface = BaseApiClient.getClient().create(ApiInterface.class);
-
         final RecyclerView mMovieRecycler = (RecyclerView) view.findViewById(R.id.movie_recycler);
         mMovieRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        Call<MovieResponse> call = ApiInterface.getTopRatedMovies(RestConstant.API_KEY);
+        ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+        Call<MovieResponse> call = apiInterface.getTopRatedMovies(RestConstant.API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {

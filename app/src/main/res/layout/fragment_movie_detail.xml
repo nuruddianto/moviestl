@@ -1,6 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -20,14 +20,29 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/img_movie_2x1"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    android:adjustViewBounds="true"
-                    android:background="@color/colorGrey"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/icon_app_movie_ciano" />
+                    android:layout_height="210dp">
+
+                    <ImageView
+                        android:id="@+id/img_movie_2x1"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:adjustViewBounds="true"
+                        android:background="@color/colorGrey"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_app_movie_ciano"
+                        android:onClick="on"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:visibility="visible"
+                        android:src="@drawable/ic_play_circle_filled_white_24px"/>
+
+                </RelativeLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -53,7 +68,6 @@
                             android:textColor="@color/colorGreyLight" />
 
                     </LinearLayout>
-
 
                 </LinearLayout>
 

@@ -7,20 +7,33 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.activity.MovieDetailActivity;
 import com.example.nurud.moviestl.model.Movie;
+import com.example.nurud.moviestl.model.MovieResponse;
+import com.example.nurud.moviestl.model.MovieVideo;
+import com.example.nurud.moviestl.model.MovieVideoResponse;
+import com.example.nurud.moviestl.rest.ApiInterface;
+import com.example.nurud.moviestl.rest.BaseApiClient;
+import com.example.nurud.moviestl.rest.RestConstant;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +51,7 @@ public class MovieDetailFragment extends Fragment {
     @InjectView(R.id.movie_detail_vote_count)
     TextView mVoteCount;
 
+    private static final String TAG = MovieDetailFragment.class.getSimpleName();
     private Activity mActivity;
     private Movie mCurrentMovie;
 
@@ -86,6 +100,29 @@ public class MovieDetailFragment extends Fragment {
                 .noFade()
                 .fit()
                 .into(mImageMovie);
+
+        mImageMovie.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+                Call<MovieVideoResponse> call = apiInterface.getMovieVideo(mCurrentMovie.getId(),RestConstant.API_KEY);
+                call.enqueue(new Callback<MovieVideoResponse>() {
+                    @Override
+                    public void onResponse(Call<MovieVideoResponse> call, Response<MovieVideoResponse> response) {
+                        List<MovieVideo> video = response.body().getResults();
+                        String videoUrl ="";
+                        videoUrl =  String.format(getString(R.string.youtube_url), video.get(video.size()-1).getVideoKey());
+
+                        mActivity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(videoUrl)));
+                    }
+
+                    @Override
+                    public void onFailure(Call<MovieVideoResponse> call, Throwable t) {
+                        Log.e(TAG, t.toString());
+                    }
+                });
+            }
+        });
         mMovieTitle.setText(mCurrentMovie.getTitle());
         //Set up description webview
         String desc = "<html><body><p align=\"justify\">";
