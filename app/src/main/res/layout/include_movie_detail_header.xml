@@ -1,75 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="280dp"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/movie_detail_rating_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:id="@+id/viewA"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@android:color/holo_purple"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/rating_image"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="fitXY"
+                android:id="@+id/backdrop_movie_detail"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:background="@color/colorGrey"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_app_movie_ciano" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/movie_detail_header_child"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/colorPrimaryDarkTeal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="150dp"
                 android:src="@drawable/star"
                 android:tint="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/movie_detail_rating"
-                style="@style/TextView.Detail.Title"
-                android:gravity="center" />
-
-            <TextView
-                style="@style/TextView.Detail"
-                android:gravity="center"
-                android:text="Rating" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/movie_detail_vote_count_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="0.5"
-            android:orientation="vertical"
-            android:padding="5dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="8.0"
+                android:textColor="@color/colorWhite" />
 
             <ImageView
-                android:id="@+id/vote_count_image"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="fitXY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="40dp"
                 android:src="@drawable/ic_people_black_24px"
-                android:tint="@color/colorPrimaryDark" />
+                android:tint="@color/colorAccentTeal" />
 
             <TextView
-                android:id="@+id/movie_detail_vote_count"
-                style="@style/TextView.Detail.Title"
-                android:gravity="center" />
-
-            <TextView
-                style="@style/TextView.Detail"
-                android:gravity="center"
-                android:text="Total Vote" />
-
+                android:id="@+id/movie_detail_total_vote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="1200"
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
 
     </LinearLayout>
 
-</merge>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_play_trailer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_play_arrow_white_24px"
+        app:layout_anchor="@id/viewA"
+        app:layout_anchorGravity="bottom|right|end" />
+
+    <ImageView
+        android:id="@+id/poster_movie_detail"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="130dp"
+        android:background="@color/colorGreyLight" />
+
+</android.support.design.widget.CoordinatorLayout>

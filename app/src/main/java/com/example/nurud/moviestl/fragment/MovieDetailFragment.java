@@ -14,12 +14,10 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.activity.MovieDetailActivity;
 import com.example.nurud.moviestl.model.Movie;
-import com.example.nurud.moviestl.model.MovieResponse;
 import com.example.nurud.moviestl.model.MovieVideo;
 import com.example.nurud.moviestl.model.MovieVideoResponse;
 import com.example.nurud.moviestl.rest.ApiInterface;
@@ -48,7 +46,7 @@ public class MovieDetailFragment extends Fragment {
     WebView mMovieDescription;
     @InjectView(R.id.movie_detail_rating)
     TextView mRating;
-    @InjectView(R.id.movie_detail_vote_count)
+    @InjectView(R.id.movie_detail_total_vote)
     TextView mVoteCount;
 
     private static final String TAG = MovieDetailFragment.class.getSimpleName();
@@ -101,19 +99,19 @@ public class MovieDetailFragment extends Fragment {
                 .fit()
                 .into(mImageMovie);
 
-        mImageMovie.setOnClickListener(new View.OnClickListener(){
+        mImageMovie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
-                Call<MovieVideoResponse> call = apiInterface.getMovieVideo(mCurrentMovie.getId(),RestConstant.API_KEY);
+                Call<MovieVideoResponse> call = apiInterface.getMovieVideo(mCurrentMovie.getId(), RestConstant.API_KEY);
                 call.enqueue(new Callback<MovieVideoResponse>() {
                     @Override
                     public void onResponse(Call<MovieVideoResponse> call, Response<MovieVideoResponse> response) {
                         List<MovieVideo> video = response.body().getResults();
-                        String videoUrl ="";
-                        videoUrl =  String.format(getString(R.string.youtube_url), video.get(video.size()-1).getVideoKey());
+                        String videoUrl = "";
+                        videoUrl = String.format(getString(R.string.youtube_url), video.get(video.size() - 1).getVideoKey());
 
-                        mActivity.startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse(videoUrl)));
+                        mActivity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl)));
                     }
 
                     @Override

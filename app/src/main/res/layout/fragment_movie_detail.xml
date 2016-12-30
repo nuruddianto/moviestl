@@ -30,16 +30,16 @@
                         android:layout_height="210dp"
                         android:adjustViewBounds="true"
                         android:background="@color/colorGrey"
+                        android:onClick="on"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/icon_app_movie_ciano"
-                        android:onClick="on"/>
+                        android:src="@drawable/icon_app_movie_ciano" />
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:visibility="visible"
-                        android:src="@drawable/ic_play_circle_filled_white_24px"/>
+                        android:src="@drawable/ic_play_circle_filled_white_24px"
+                        android:visibility="visible" />
 
                 </RelativeLayout>
 
@@ -50,9 +50,6 @@
                     android:orientation="vertical"
                     android:padding="20dip">
 
-                    <TextView
-                        android:id="@+id/movie_title"
-                        style="@style/TextView.Detail.Title" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -60,12 +57,6 @@
                         android:orientation="vertical">
 
                         <include layout="@layout/include_movie_detail_header" />
-
-                        <WebView
-                            android:id="@+id/movie_description"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorGreyLight" />
 
                     </LinearLayout>
 
