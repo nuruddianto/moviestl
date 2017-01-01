@@ -56,7 +56,7 @@ public class TopRatedFragment extends Fragment {
         mMovieRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
-        Call<MovieResponse> call = apiInterface.getTopRatedMovies(RestConstant.API_KEY);
+        Call<MovieResponse> call = apiInterface.getTopRatedMovies(RestConstant.TMDB_API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {

@@ -103,7 +103,7 @@ public class MovieDetailFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
-                Call<MovieVideoResponse> call = apiInterface.getMovieVideo(mCurrentMovie.getId(), RestConstant.API_KEY);
+                Call<MovieVideoResponse> call = apiInterface.getMovieVideo(mCurrentMovie.getId(), RestConstant.TMDB_API_KEY);
                 call.enqueue(new Callback<MovieVideoResponse>() {
                     @Override
                     public void onResponse(Call<MovieVideoResponse> call, Response<MovieVideoResponse> response) {

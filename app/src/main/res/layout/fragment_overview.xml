@@ -1,21 +1,80 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context="com.example.nurud.moviestl.fragment.OverviewFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
-        <TextView
-            android:id="@+id/movie_title_overview"
-            style="@style/TextView.Detail.Title"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Batman The Dark Knight" />
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:src="@drawable/star"
+                    android:tint="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/movie_detail_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8.0"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_people_black_24px"
+                    android:tint="@color/colorAccentDark" />
+
+                <TextView
+                    android:id="@+id/movie_detail_total_vote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="1200"
+                    android:textColor="@color/colorBlack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/movie_detail_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="125 min"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -24,12 +83,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
             android:text="Produced by"
             android:textColor="@color/colorBlack"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/company_production"
+            android:id="@+id/movie_detail_company_production"
+            android:paddingLeft="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DC Comics, Warner Bros" />
@@ -41,14 +102,48 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:text="Released"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/movie_detail_release_date"
+            android:paddingLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Jan 20, 1994" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <TextView
+            android:paddingLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tagline:"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
+
+        <TextView
+            android:paddingLeft="8dp"
+            android:id="@+id/movie_detail_tagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Why SoSerious ?" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
         <WebView
             android:id="@+id/movie_overview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:isScrollContainer="true"
             android:textColor="@color/colorGreyLight" />
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

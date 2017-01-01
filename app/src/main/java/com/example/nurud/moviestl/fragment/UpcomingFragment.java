@@ -57,7 +57,7 @@ public class UpcomingFragment extends Fragment {
         final RecyclerView mUpcomingRecycler = (RecyclerView) view.findViewById(R.id.upcoming_recycler);
         mUpcomingRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        Call<MovieResponse> call = ApiInterface.getUpcominMovies(RestConstant.API_KEY);
+        Call<MovieResponse> call = ApiInterface.getUpcominMovies(RestConstant.TMDB_API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.nurud.moviestl.fragment.HomeFragment;
 import com.example.nurud.moviestl.fragment.TopRatedFragment;
 import com.example.nurud.moviestl.fragment.UpcomingFragment;
 
@@ -24,6 +25,8 @@ public class DashboardViewPagerAdapter extends FragmentPagerAdapter {
         mTitleFragment.add("Upcoming");
         mFragmnets.add(new TopRatedFragment());
         mTitleFragment.add("Top 20");
+//        mFragmnets.add(new HomeFragment());
+//        mTitleFragment.add("Home");
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.nurud.moviestl.rest;
 
+import com.example.nurud.moviestl.model.MovieDetail;
 import com.example.nurud.moviestl.model.MovieResponse;
 import com.example.nurud.moviestl.model.MovieVideoResponse;
 
@@ -17,7 +18,7 @@ public interface ApiInterface {
     Call<MovieResponse> getTopRatedMovies(@Query("api_key") String apiKey);
 
     @GET("movie/{id}")
-    Call<MovieResponse> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
+    Call<MovieDetail> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
 
     @GET("movie/upcoming")
     Call<MovieResponse> getUpcominMovies(@Query("api_key") String apiKey);

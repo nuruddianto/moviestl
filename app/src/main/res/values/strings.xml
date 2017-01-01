@@ -16,4 +16,8 @@
 
     <!--URL-->
     <string name="youtube_url">https://www.youtube.com/watch?v=%1$s</string>
+
+    <string name="company_production">%1$s, %2$s, %3$s </string>
+    <string name="genres">%1$s, %2$s, %3$s </string>
+    <string name="duration">%s min</string>
 </resources>

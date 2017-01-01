@@ -15,6 +15,10 @@ import android.widget.TextView;
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.activity.MovieDetailActivity;
 import com.example.nurud.moviestl.model.Movie;
+import com.example.nurud.moviestl.model.MovieDetail;
+import com.example.nurud.moviestl.model.ProductionCompanies;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -27,11 +31,23 @@ public class OverviewFragment extends Fragment {
     private static final String TAG = OverviewFragment.class.getName();
     private Activity mActivity;
     private Movie mCurrentMovie;
+    private MovieDetail mMovieDetail;
 
-    @InjectView(R.id.movie_title_overview)
-    protected TextView mMovieTitle;
     @InjectView(R.id.movie_overview)
     protected WebView mMovieOverview;
+    @InjectView(R.id.movie_detail_release_date)
+    protected  TextView mReleaseDate;
+    @InjectView(R.id.movie_detail_company_production)
+    protected TextView mCompanyProduction;
+    @InjectView(R.id.movie_detail_rating)
+    protected TextView mRating;
+    @InjectView(R.id.movie_detail_total_vote)
+    protected TextView mTotalVote;
+    @InjectView(R.id.movie_detail_duration)
+    protected TextView mDuration;
+    @InjectView(R.id.movie_detail_tagline)
+    protected TextView mTagline;
+
 
     public OverviewFragment() {
         // Required empty public constructor
@@ -49,6 +65,7 @@ public class OverviewFragment extends Fragment {
         Intent intent = mActivity.getIntent();
         if (intent != null) {
             mCurrentMovie = intent.getParcelableExtra(MovieDetailActivity.BUNDLE_MOVIE);
+            mMovieDetail = intent.getParcelableExtra(MovieDetailActivity.BUNDLE_MOVIE_DETAIL);
         }
     }
 
@@ -73,14 +90,27 @@ public class OverviewFragment extends Fragment {
     }
 
     private void setView() {
-        if (mCurrentMovie == null) {
+        if (mCurrentMovie == null && mMovieDetail == null) {
             return;
         }
-        mMovieTitle.setText(mCurrentMovie.getTitle());
         //Set up description webview
         String desc = "<html><body><p align=\"justify\">";
         desc += mCurrentMovie.getOverview();
         desc += "</p></body></html>";
         mMovieOverview.loadData(desc, "text/html", "utf-8");
+        mReleaseDate.setText(mMovieDetail.getReleaseDate());
+        mRating.setText(String.valueOf(mMovieDetail.getVoteAverage()));
+        mDuration.setText(String.format(getString(R.string.duration), String.valueOf(mMovieDetail.getRunTime())));
+        mTotalVote.setText(String.valueOf(mMovieDetail.getVoteCount()));
+        mTagline.setText(mMovieDetail.getTagLine());
+        List<ProductionCompanies> productionCompanies = mMovieDetail.getProductionCompanies();
+        String companies = "";
+        for(int i =0; i < productionCompanies.size(); i++){
+            companies += productionCompanies.get(i).getProuctionCompanyName();
+            if(i != productionCompanies.size()-1){
+                companies += ", ";
+            }
+        }
+        mCompanyProduction.setText(companies);
     }
 }
