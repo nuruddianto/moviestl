@@ -31,6 +31,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         DashboardViewPagerAdapter adapter = new DashboardViewPagerAdapter(getSupportFragmentManager(), this);
 
+        mViewPager.setOffscreenPageLimit(3);
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);
     }

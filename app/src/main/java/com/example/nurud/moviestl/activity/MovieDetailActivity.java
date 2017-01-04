@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,8 @@ import com.example.nurud.moviestl.adapter.MovieDetailViewPagerAdapter;
 import com.example.nurud.moviestl.model.Genre;
 import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieDetail;
+import com.example.nurud.moviestl.model.MovieVideo;
+import com.example.nurud.moviestl.model.MovieVideoResponse;
 import com.example.nurud.moviestl.rest.ApiInterface;
 import com.example.nurud.moviestl.rest.BaseApiClient;
 import com.example.nurud.moviestl.rest.RestConstant;
@@ -41,6 +44,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     private ActionBar mActionBar;
     private Movie mCurrentMovie;
     private MovieDetail mMovieDetail;
+    private ApiInterface mApiInterface;
+    private Intent mIntent;
+    private List<MovieVideo> mTrailer;
 
     @InjectView(R.id.toolbar)
     protected Toolbar mToolbar;
@@ -69,29 +75,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
         ButterKnife.inject(this);
-        final Intent intent = getIntent();
-        if (intent != null) {
-            mCurrentMovie = intent.getParcelableExtra(BUNDLE_MOVIE);
+        mIntent = getIntent();
+        if (mIntent != null) {
+            mCurrentMovie = mIntent.getParcelableExtra(BUNDLE_MOVIE);
         }
-
-        int movieId = mCurrentMovie.getId();
-        ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
-        Call<MovieDetail> call = apiInterface.getMovieDetails(movieId, RestConstant.TMDB_API_KEY);
-        call.enqueue(new Callback<MovieDetail>() {
-            @Override
-            public void onResponse(Call<MovieDetail> call, Response<MovieDetail> response) {
-                mMovieDetail = response.body();
-                intent.putExtra(MovieDetailActivity.BUNDLE_MOVIE_DETAIL, mMovieDetail);
-                Log.d(TAG, "Movie detail hit success" + mMovieDetail.getTitle());
-                setViewPagerAdapter();
-                initializeMovieDetailHeader();
-            }
-
-            @Override
-            public void onFailure(Call<MovieDetail> call, Throwable t) {
-                Log.e(TAG, t.toString());
-            }
-        });
+        mApiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+        getMovieDetail();
     }
 
     private void setViewPagerAdapter(){
@@ -156,7 +145,49 @@ public class MovieDetailActivity extends AppCompatActivity {
             }
         }
         mGenres.setText(genre);
+        mPlayTrailer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String videoUrl = "";
+                videoUrl = String.format(getString(R.string.youtube_url), mTrailer.get(mTrailer.size() - 1).getVideoKey());
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videoUrl)));
+            }
+        });
     }
 
+    private void getMovieDetail(){
+        Call<MovieDetail> call = mApiInterface.getMovieDetails(mCurrentMovie.getId(), RestConstant.TMDB_API_KEY);
+        call.enqueue(new Callback<MovieDetail>() {
+            @Override
+            public void onResponse(Call<MovieDetail> call, Response<MovieDetail> response) {
+                mMovieDetail = response.body();
+                mIntent.putExtra(MovieDetailActivity.BUNDLE_MOVIE_DETAIL, mMovieDetail);
+                Log.d(TAG, "Movie detail hit success" + mMovieDetail.getTitle());
+                getMovieTrailer();
+            }
+
+            @Override
+            public void onFailure(Call<MovieDetail> call, Throwable t) {
+                Log.e(TAG, t.toString());
+            }
+        });
+    }
+
+    private void getMovieTrailer(){
+        Call<MovieVideoResponse> call = mApiInterface.getMovieVideo(mCurrentMovie.getId(), RestConstant.TMDB_API_KEY);
+        call.enqueue(new Callback<MovieVideoResponse>() {
+            @Override
+            public void onResponse(Call<MovieVideoResponse> call, Response<MovieVideoResponse> response) {
+                mTrailer = response.body().getResults();
+                setViewPagerAdapter();
+                initializeMovieDetailHeader();
+            }
+
+            @Override
+            public void onFailure(Call<MovieVideoResponse> call, Throwable t) {
+                Log.e(TAG, t.toString());
+            }
+        });
+    }
 
 }

@@ -52,8 +52,8 @@ public class TopRatedFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        final RecyclerView mMovieRecycler = (RecyclerView) view.findViewById(R.id.movie_recycler);
-        mMovieRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        final RecyclerView movieRecycler = (RecyclerView) view.findViewById(R.id.movie_recycler);
+        movieRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
         Call<MovieResponse> call = apiInterface.getTopRatedMovies(RestConstant.TMDB_API_KEY);
@@ -62,7 +62,7 @@ public class TopRatedFragment extends Fragment {
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> movies = response.body().getResults();
                 mTopRatedAdapter = new TopRatedAdapter(movies, R.layout.item_top_rated_movie, getContext());
-                mMovieRecycler.setAdapter(mTopRatedAdapter);
+                movieRecycler.setAdapter(mTopRatedAdapter);
                 Log.d(TAG, "Jumlah movie yang didapat:" + movies.size());
             }
 

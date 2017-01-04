@@ -79,7 +79,7 @@ public class PosterTypeAdapter implements ExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View view, ViewGroup parent) {
         ParentHolder parentHolder =null;
-        Movie movie = (Movie)getGroup(groupPosition);
+        PosterType posterType = (PosterType)getGroup(groupPosition);
 
         if(view == null){
             LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(mContext.LAYOUT_INFLATER_SERVICE);
@@ -93,14 +93,14 @@ public class PosterTypeAdapter implements ExpandableListAdapter {
         }
 
         parentHolder.posterTypeName = (TextView)view.findViewById(R.id.text_poster_type);
-        parentHolder.posterTypeName.setText(movie.getTitle());
+        parentHolder.posterTypeName.setText(posterType.mPosterTypeName);
 
         parentHolder.indicator = (ImageView)view.findViewById(R.id.image_indicator);
 
         if(isExpanded){
-            parentHolder.indicator.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24px);
-        }else{
             parentHolder.indicator.setImageResource(R.drawable.ic_keyboard_arrow_down_black_24px);
+        }else{
+            parentHolder.indicator.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24px);
         }
 
         return view;

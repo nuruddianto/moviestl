@@ -23,7 +23,7 @@ public class DateFormatter {
     public String doFormat(Context context){
         DateFormat fromFormat = new SimpleDateFormat("yyyy-MM-dd");
         fromFormat.setLenient(false);
-        SimpleDateFormat toFormat = new SimpleDateFormat("MMM dd yyyy");
+        SimpleDateFormat toFormat = new SimpleDateFormat("MMM dd, yyyy");
         toFormat.setLenient(false);
 
         try {
