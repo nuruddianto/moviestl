@@ -1,4 +1,4 @@
-package com.example.nurud.moviestl.Utility;
+package com.example.nurud.moviestl.utility;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.model.Movie;
 
 /**
- * Created by SRIN on 1/3/2017.
+ * Created by Nurudianto on 1/3/2017.
  */
 public class ImageSliderView extends BaseSliderView {
     private Movie mMovie;

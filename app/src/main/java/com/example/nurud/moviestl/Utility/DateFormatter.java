@@ -1,8 +1,6 @@
-package com.example.nurud.moviestl.Utility;
+package com.example.nurud.moviestl.utility;
 
 import android.content.Context;
-
-import com.example.nurud.moviestl.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -10,30 +8,37 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by SRIN on 12/27/2016.
+ * Created by Nurudianto on 12/27/2016.
  */
 public class DateFormatter {
-
-    private String mDateInString;
+    private Date mReleaseDate;
 
     public DateFormatter(String dateInString) {
-        mDateInString = dateInString;
-    }
-
-    public String doFormat(Context context){
-        DateFormat fromFormat = new SimpleDateFormat("yyyy-MM-dd");
-        fromFormat.setLenient(false);
-        SimpleDateFormat toFormat = new SimpleDateFormat("MMM dd, yyyy");
-        toFormat.setLenient(false);
-
+        SimpleDateFormat releaseSDF = new SimpleDateFormat("yyyy-MM-dd");
+        releaseSDF.setLenient(false);
         try {
-            Date date = fromFormat.parse(mDateInString);
-            return toFormat.format(date);
-
+            mReleaseDate = releaseSDF.parse(dateInString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-        return context.getString(R.string.error_date_input_format);
     }
+
+    public String change(Context context) {
+        SimpleDateFormat toFormat = new SimpleDateFormat("MMM dd, yyyy");
+        toFormat.setLenient(false);
+        return toFormat.format(mReleaseDate);
+    }
+
+    public boolean isReleased() {
+        DateFormat fromFormat = new SimpleDateFormat("yyyy-MM-dd");
+        fromFormat.setLenient(false);
+
+        Date currentDate = new Date();
+
+        if (mReleaseDate.after(currentDate)) {
+            return true;
+        }
+        return false;
+    }
+
 }

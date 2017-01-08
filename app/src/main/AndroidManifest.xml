@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_app_movie_ciano"
@@ -21,7 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MovieDetailActivity"></activity>
+        <activity android:name=".activity.MovieDetailActivity" />
+        <activity android:name=".activity.MovieTheatreActivity" />
+        <activity android:name=".activity.ShowTimeTheatreActivity"></activity>
     </application>
 
 </manifest>

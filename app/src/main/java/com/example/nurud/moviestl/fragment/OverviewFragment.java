@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import android.widget.TextView;
 
 import com.example.nurud.moviestl.R;
-import com.example.nurud.moviestl.Utility.DateFormatter;
+import com.example.nurud.moviestl.utility.DateFormatter;
 import com.example.nurud.moviestl.activity.MovieDetailActivity;
 import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieDetail;
@@ -100,7 +100,7 @@ public class OverviewFragment extends Fragment {
         desc += "</p></body></html>";
         mMovieOverview.loadData(desc, "text/html", "utf-8");
         DateFormatter dateFormatter = new DateFormatter(mMovieDetail.getReleaseDate());
-        mReleaseDate.setText(dateFormatter.doFormat(mActivity));
+        mReleaseDate.setText(dateFormatter.change(mActivity));
         mRating.setText(String.valueOf(mMovieDetail.getVoteAverage()));
         mDuration.setText(String.format(getString(R.string.duration), String.valueOf(mMovieDetail.getRunTime())));
         mTotalVote.setText(String.valueOf(mMovieDetail.getVoteCount()));

@@ -19,7 +19,7 @@ import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.Router;
-import com.example.nurud.moviestl.Utility.ImageSliderView;
+import com.example.nurud.moviestl.utility.ImageSliderView;
 import com.example.nurud.moviestl.adapter.PosterTypeAdapter;
 import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieResponse;
@@ -85,13 +85,13 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
     }
 
     /*Synchroniously call retrofit*/
-    private void setAdapter(){
+    private void setAdapter() {
         mPosterTypeAdapter = new PosterTypeAdapter(mContext, mPosterTypes);
         mPosterListView.setAdapter(mPosterTypeAdapter);
         mPosterListView.expandGroup(0);
     }
 
-    private void getTopRatedData(){
+    private void getTopRatedData() {
         Call<MovieResponse> call = mApiInterface.getTopRatedMovies(RestConstant.TMDB_API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
@@ -100,18 +100,18 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
                 PosterType topRated = new PosterType("Top Rated", topRatedList);
                 mPosterTypes.add(topRated);
                 getNowPlayingData();
-                Log.d(TAG, "Jumlah movie yang didapat:" + topRatedList.size());
+                Log.d(TAG, String.format(mContext.getString(R.string.log_success_top_rated_movies), topRatedList.size()));
             }
 
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
                 Log.e(TAG, t.toString());
-                Toast.makeText(getContext(), "Fail to get top rated movie", Toast.LENGTH_LONG);
+                Log.d(TAG, mContext.getString(R.string.log_success_top_rated_movies));
             }
         });
     }
 
-    private void getNowPlayingData(){
+    private void getNowPlayingData() {
         Call<MovieResponse> call = mApiInterface.getNowPlayingMovies(RestConstant.TMDB_API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
@@ -130,7 +130,7 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         });
     }
 
-    private void getUpcomingData(){
+    private void getUpcomingData() {
         Call<MovieResponse> call = mApiInterface.getUpcominMovies(RestConstant.TMDB_API_KEY);
         call.enqueue(new Callback<MovieResponse>() {
             @Override
@@ -149,12 +149,12 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         });
     }
 
-    private void setImageSliderData(List<Movie> movies){
-        for(final Movie movie : movies){
+    private void setImageSliderData(List<Movie> movies) {
+        for (final Movie movie : movies) {
             ImageSliderView textSliderView = new ImageSliderView(mContext, movie);
             /*initialize slider layout*/
             textSliderView.description(movie.getTitle())
-                    .image(String.format(getString(R.string.image_url),movie.getBackdropPath()))
+                    .image(String.format(getString(R.string.image_url), movie.getBackdropPath()))
                     .setScaleType(BaseSliderView.ScaleType.Fit)
                     .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
                         @Override

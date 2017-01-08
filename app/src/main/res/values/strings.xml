@@ -21,4 +21,14 @@
     <string name="genres">%1$s, %2$s, %3$s </string>
     <string name="duration">%s min</string>
     <string name="image_url">http://image.tmdb.org/t/p/w500%s</string>
+
+    <!--View Pager Menu-->
+    <string name="home_dashboard_menu_pager">Home</string>
+    <string name="upcoming_dashboard_menu_pager">Upcoming</string>
+    <string name="top_rated">Top Rated</string>
+
+    <!--Log-->
+    <string name="log_success_top_rated_movies">retrofit :: jumlah movie yang didapat: %d</string>
+    <string name="log_fail_top_rated_movies">retrofit :: request top rated movie gagal</string>
+    <string name="genre">Genre</string>
 </resources>
