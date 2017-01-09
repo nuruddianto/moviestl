@@ -3,6 +3,7 @@ package com.example.nurud.moviestl.rest;
 import com.example.nurud.moviestl.model.CityTheatreResponse;
 import com.example.nurud.moviestl.model.MovieDetail;
 import com.example.nurud.moviestl.model.MovieResponse;
+import com.example.nurud.moviestl.model.MovieTheatreResponse;
 import com.example.nurud.moviestl.model.MovieVideoResponse;
 import com.example.nurud.moviestl.model.ReviewResponse;
 
@@ -39,5 +40,5 @@ public interface ApiInterface {
     Call<CityTheatreResponse> getCitiesTheatre(@Query("k") String apiKey);
 
     @GET("api/jadwal-bioskop")
-    Call<MovieVideoResponse> getMoviesTheatre(@Query("k") String apiKey, @Query("id") String movieId);
+    Call<MovieTheatreResponse> getMoviesTheatre(@Query("k") String apiKey, @Query("id") String movieId);
 }

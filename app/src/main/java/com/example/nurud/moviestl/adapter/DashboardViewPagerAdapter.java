@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.fragment.HomeFragment;
 import com.example.nurud.moviestl.fragment.TopRatedFragment;
+import com.example.nurud.moviestl.fragment.TwentyOneTheatreFragment;
 import com.example.nurud.moviestl.fragment.UpcomingFragment;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class DashboardViewPagerAdapter extends FragmentPagerAdapter {
         mTitleFragment.add(context.getString(R.string.upcoming_dashboard_menu_pager));
         mFragments.add(new TopRatedFragment());
         mTitleFragment.add(context.getString(R.string.top_rated));
+        mFragments.add(new TwentyOneTheatreFragment());
+        mTitleFragment.add("Theatre");
     }
 
     @Override

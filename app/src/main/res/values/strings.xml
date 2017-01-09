@@ -31,4 +31,6 @@
     <string name="log_success_top_rated_movies">retrofit :: jumlah movie yang didapat: %d</string>
     <string name="log_fail_top_rated_movies">retrofit :: request top rated movie gagal</string>
     <string name="genre">Genre</string>
+    <string name="log_success_hit_movie_detail">movie detail yang didapat : %s</string>
+    <string name="log_twenty_one_theatre">Jumlah kota yang didapat : %d</string>
 </resources>

@@ -12,14 +12,14 @@
         android:background="@color/colorGrey">
 
         <TextView
-            android:id="@+id/theatre"
+            android:id="@+id/show_time_theatre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ATRIUM XXI"
             android:textSize="17sp"
             android:textStyle="bold"/>
 
-        <example.wim.androidretrofit.util.FlowLayout
+        <example.nurud.moviestl.utility.FlowLayout
             android:id="@+id/lyTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -68,7 +68,7 @@ public class TopRatedAdapter extends RecyclerView.Adapter<TopRatedAdapter.MovieV
         int defaultBannerDrawable = R.drawable.ic_movie_ciano_24px;
 
         if (movies.get(position).getPosterPath() != null) {
-            requestCreator = Picasso.with(holder.topRatedImage.getContext()).load(Uri.parse("http://image.tmdb.org/t/p/w500" + movies.get(position).getPosterPath()));
+            requestCreator = Picasso.with(holder.topRatedImage.getContext()).load(Uri.parse(String.format(mContext.getString(R.string.image_url), movies.get(position).getPosterPath())));
         } else {
             requestCreator = Picasso.with(holder.topRatedImage.getContext()).load(defaultBannerDrawable);
         }

@@ -125,13 +125,13 @@ public class MovieDetailActivity extends AppCompatActivity {
             return;
         }
         int defaultImageDrawable = R.drawable.icon_app_movie_ciano;
-        Picasso.with(this).load(Uri.parse("http://image.tmdb.org/t/p/w500" + mCurrentMovie.getBackdropPath()))
+        Picasso.with(this).load(Uri.parse(String.format(getString(R.string.image_url), mCurrentMovie.getBackdropPath())))
                 .placeholder(defaultImageDrawable)
                 .noFade()
                 .fit()
                 .into(mBackDrop);
 
-        Picasso.with(this).load(Uri.parse("http://image.tmdb.org/t/p/w500" + mCurrentMovie.getPosterPath()))
+        Picasso.with(this).load(Uri.parse(String.format(getString(R.string.image_url),mCurrentMovie.getPosterPath())))
                 .noFade()
                 .fit()
                 .into(mPoster);
@@ -162,7 +162,7 @@ public class MovieDetailActivity extends AppCompatActivity {
             public void onResponse(Call<MovieDetail> call, Response<MovieDetail> response) {
                 mMovieDetail = response.body();
                 mIntent.putExtra(MovieDetailActivity.BUNDLE_MOVIE_DETAIL, mMovieDetail);
-                Log.d(TAG, "Movie detail hit success" + mMovieDetail.getTitle());
+                Log.d(TAG, String.format(getString(R.string.log_success_hit_movie_detail), mMovieDetail.getTitle()));
                 getMovieTrailer();
             }
 

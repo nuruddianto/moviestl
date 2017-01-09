@@ -27,7 +27,7 @@ public class CityTheatreResponse {
         this.mMessage = mMessage;
     }
 
-    public List<CityTheatre> getCitiesTheatre() {
+    public List<CityTheatre> getCitieTheatres() {
         return mCitiesTheatre;
     }
 

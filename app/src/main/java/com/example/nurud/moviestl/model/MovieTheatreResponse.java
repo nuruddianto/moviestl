@@ -7,6 +7,7 @@ import java.util.List;
  */
 
 public class MovieTheatreResponse {
+
     private String mStatus;
     private String mMessage;
     private String mCity;
