@@ -28,10 +28,6 @@ public class DashboardActivity extends AppCompatActivity {
     protected TabLayout mTabLayout;
     @InjectView(R.id.dashboard_viewpager)
     protected ViewPager mViewPager;
-    @InjectView(R.id.drawer_layout)
-    protected DrawerLayout mDrawerLayout;
-    @InjectView(R.id.left_drawer_list)
-    protected ListView mDrawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

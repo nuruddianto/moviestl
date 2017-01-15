@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ScrollView;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -75,6 +76,12 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
         getTopRatedData();
+        final ScrollView scrollview = ((ScrollView) view.findViewById(R.id.nested_image_slider));
+        scrollview.post(new Runnable() {
+            @Override public void run() {
+                scrollview.fullScroll(ScrollView.FOCUS_UP);
+            }
+        });
     }
 
     @Override
@@ -90,34 +97,34 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
         for(int i =0; i < 3; i++){
             mPosterListView.expandGroup(i);
         }
-        int totalHeight = 0;
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(mPosterListView.getWidth(),
-                View.MeasureSpec.EXACTLY);
-        for (int i = 0; i < mPosterTypeAdapter.getGroupCount(); i++) {
-            View groupItem = mPosterTypeAdapter.getGroupView(i, false, null, mPosterListView);
-            groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-
-            totalHeight += groupItem.getMeasuredHeight();
-
-            if (((mPosterListView.isGroupExpanded(i)))
-                    || ((!mPosterListView.isGroupExpanded(i)) )){
-                for (int j = 0; j < mPosterTypeAdapter.getChildrenCount(i); j++) {
-                    View listItem = mPosterTypeAdapter.getChildView(i, j, false, null,
-                            mPosterListView);
-                    listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-                    totalHeight += listItem.getMeasuredHeight();
-                }
-            }
-        }
-
-        ViewGroup.LayoutParams params = mPosterListView.getLayoutParams();
-        int height = totalHeight + 100
-                + (mPosterListView.getDividerHeight() * (mPosterTypeAdapter.getGroupCount() - 1));
-        if (height < 10)
-            height = 200;
-        params.height = height;
-        mPosterListView.setLayoutParams(params);
-        mPosterListView.requestLayout();
+//        int totalHeight = 0;
+//        int desiredWidth = View.MeasureSpec.makeMeasureSpec(mPosterListView.getWidth(),
+//                View.MeasureSpec.EXACTLY);
+//        for (int i = 0; i < mPosterTypeAdapter.getGroupCount(); i++) {
+//            View groupItem = mPosterTypeAdapter.getGroupView(i, false, null, mPosterListView);
+//            groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+//
+//            totalHeight += groupItem.getMeasuredHeight();
+//
+//            if (((mPosterListView.isGroupExpanded(i)))
+//                    || ((!mPosterListView.isGroupExpanded(i)) )){
+//                for (int j = 0; j < mPosterTypeAdapter.getChildrenCount(i); j++) {
+//                    View listItem = mPosterTypeAdapter.getChildView(i, j, false, null,
+//                            mPosterListView);
+//                    listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+//                    totalHeight += listItem.getMeasuredHeight();
+//                }
+//            }
+//        }
+//
+//        ViewGroup.LayoutParams params = mPosterListView.getLayoutParams();
+//        int height = totalHeight + 100
+//                + (mPosterListView.getDividerHeight() * (mPosterTypeAdapter.getGroupCount() - 1));
+//        if (height < 10)
+//            height = 200;
+//        params.height = height;
+//        mPosterListView.setLayoutParams(params);
+//        mPosterListView.requestLayout();
     }
 
     private void getTopRatedData() {
