@@ -54,64 +54,64 @@ public class MovieVideo implements Parcelable {
         return mViedoId;
     }
 
-    public void setViedoId(String mViedoId) {
-        this.mViedoId = mViedoId;
+    public void setViedoId(String viedoId) {
+        this.mViedoId = viedoId;
     }
 
     public String getIs0639() {
         return mIs0639;
     }
 
-    public void setIs0639(String mIs0639) {
-        this.mIs0639 = mIs0639;
+    public void setIs0639(String is0639) {
+        this.mIs0639 = is0639;
     }
 
     public String getIso3166() {
         return mIso3166;
     }
 
-    public void setIso3166(String mIso3166) {
-        this.mIso3166 = mIso3166;
+    public void setIso3166(String iso3166) {
+        this.mIso3166 = iso3166;
     }
 
     public String getVideoKey() {
         return mVideoKey;
     }
 
-    public void setVideoKey(String mVideoKey) {
-        this.mVideoKey = mVideoKey;
+    public void setVideoKey(String videoKey) {
+        this.mVideoKey = videoKey;
     }
 
     public String getVideoName() {
         return mVideoName;
     }
 
-    public void setVideoName(String mVideoName) {
-        this.mVideoName = mVideoName;
+    public void setVideoName(String videoName) {
+        this.mVideoName = videoName;
     }
 
     public String getVideoSite() {
         return mVideoSite;
     }
 
-    public void setVideoSite(String mVideoSite) {
-        this.mVideoSite = mVideoSite;
+    public void setVideoSite(String videoSite) {
+        this.mVideoSite = videoSite;
     }
 
     public int getVideoSize() {
         return mVideoSize;
     }
 
-    public void setVideoSize(int mVideoSize) {
-        this.mVideoSize = mVideoSize;
+    public void setVideoSize(int videoSize) {
+        this.mVideoSize = videoSize;
     }
 
     public String getVideoType() {
         return mVideoType;
     }
 
-    public void setVideoType(String mVideoType) {
-        this.mVideoType = mVideoType;
+    public void setVideoType(String videoType) {
+        this.mVideoType = videoType;
     }
 
     public static final Creator<MovieVideo> CREATOR = new Creator<MovieVideo>() {

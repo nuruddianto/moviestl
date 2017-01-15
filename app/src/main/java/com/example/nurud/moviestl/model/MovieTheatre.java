@@ -43,40 +43,40 @@ public class MovieTheatre implements Parcelable{
         return mMovie;
     }
 
-    public void setMovie(String mMovie) {
-        this.mMovie = mMovie;
+    public void setMovie(String movie) {
+        this.mMovie = movie;
     }
 
     public String getPoster() {
         return mPoster;
     }
 
-    public void setPoster(String mPoster) {
-        this.mPoster = mPoster;
+    public void setPoster(String poster) {
+        this.mPoster = poster;
     }
 
     public String getGenre() {
         return mGenre;
     }
 
-    public void setGenre(String mGenre) {
-        this.mGenre = mGenre;
+    public void setGenre(String genre) {
+        this.mGenre = genre;
     }
 
     public String getDuration() {
         return mDuration;
     }
 
-    public void setDuration(String mDuration) {
-        this.mDuration = mDuration;
+    public void setDuration(String duration) {
+        this.mDuration = duration;
     }
 
     public List<ShowTimeTheatre> getShowTime() {
         return mShowTime;
     }
 
-    public void setShowTime(List<ShowTimeTheatre> mShowTime) {
-        this.mShowTime = mShowTime;
+    public void setShowTime(List<ShowTimeTheatre> showTime) {
+        this.mShowTime = showTime;
     }
 
     @Override

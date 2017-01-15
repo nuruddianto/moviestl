@@ -22,16 +22,16 @@ public class MovieTheatreResponse {
         return mStatus;
     }
 
-    public void setStatus(String mStatus) {
-        this.mStatus = mStatus;
+    public void setStatus(String status) {
+        this.mStatus = status;
     }
 
     public String getCity() {
         return mCity;
     }
 
-    public void setCity(String mCity) {
-        this.mCity = mCity;
+    public void setCity(String city) {
+        this.mCity = city;
     }
 
     public String getDate() {

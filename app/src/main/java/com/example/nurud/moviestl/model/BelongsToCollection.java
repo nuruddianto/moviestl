@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by SRIN on 12/29/2016.
+ * Created by nurud on 12/29/2016.
  */
 public class BelongsToCollection implements Parcelable {
     @SerializedName("id")
@@ -37,32 +37,32 @@ public class BelongsToCollection implements Parcelable {
         return mCollectionId;
     }
 
-    public void setCollectionId(int mCollectionId) {
-        this.mCollectionId = mCollectionId;
+    public void setCollectionId(int collectionId) {
+        this.mCollectionId = collectionId;
     }
 
     public String getCollectionName() {
         return mCollectionName;
     }
 
-    public void setCollectionName(String mCollectionName) {
-        this.mCollectionName = mCollectionName;
+    public void setCollectionName(String collectionName) {
+        this.mCollectionName = collectionName;
     }
 
     public String getPosterPath() {
         return mPosterPath;
     }
 
-    public void setPosterPath(String mPosterPath) {
-        this.mPosterPath = mPosterPath;
+    public void setPosterPath(String posterPath) {
+        this.mPosterPath = posterPath;
     }
 
     public String getBackdropPath() {
         return mBackdropPath;
     }
 
-    public void setBackdropPath(String mBackdropPath) {
-        this.mBackdropPath = mBackdropPath;
+    public void setBackdropPath(String backdropPath) {
+        this.mBackdropPath = backdropPath;
     }
 
     @Override

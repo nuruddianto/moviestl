@@ -17,15 +17,15 @@ public class MovieVideoResponse {
         return mMovieId;
     }
 
-    public void setMovieId(int mMovieId) {
-        this.mMovieId = mMovieId;
+    public void setMovieId(int movieId) {
+        this.mMovieId = movieId;
     }
 
     public List<MovieVideo> getResults() {
         return mResults;
     }
 
-    public void setResults(List<MovieVideo> mResults) {
-        this.mResults = mResults;
+    public void setResults(List<MovieVideo> results) {
+        this.mResults = results;
     }
 }

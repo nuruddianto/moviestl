@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by SRIN on 12/29/2016.
+ * Created by nurud on 12/29/2016.
  */
 public class Genre implements Parcelable {
     @SerializedName("id")
@@ -29,16 +29,16 @@ public class Genre implements Parcelable {
         return mGenreId;
     }
 
-    public void setGenreId(int mGenreId) {
-        this.mGenreId = mGenreId;
+    public void setGenreId(int genreId) {
+        this.mGenreId = genreId;
     }
 
     public String getGenreName() {
         return mGenreName;
     }
 
-    public void setGenreName(String mGenreName) {
-        this.mGenreName = mGenreName;
+    public void setGenreName(String genreName) {
+        this.mGenreName = genreName;
     }
 
     @Override

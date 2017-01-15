@@ -29,16 +29,16 @@ public class ProductionCompanies implements Parcelable {
         return mProuctionCompanyName;
     }
 
-    public void setProuctionCompanyName(String mProuctionCompanyName) {
-        this.mProuctionCompanyName = mProuctionCompanyName;
+    public void setProuctionCompanyName(String prouctionCompanyName) {
+        this.mProuctionCompanyName = prouctionCompanyName;
     }
 
     public int getProductionCompanyId() {
         return mProductionCompanyId;
     }
 
-    public void setProductionCompanyId(int mProductionCompanyId) {
-        this.mProductionCompanyId = mProductionCompanyId;
+    public void setProductionCompanyId(int productionCompanyId) {
+        this.mProductionCompanyId = productionCompanyId;
     }
 
     @Override

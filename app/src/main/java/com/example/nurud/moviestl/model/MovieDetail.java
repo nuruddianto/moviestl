@@ -125,200 +125,200 @@ public class MovieDetail implements Parcelable {
         return mAdult;
     }
 
-    public void setAdult(boolean mAdult) {
-        this.mAdult = mAdult;
+    public void setAdult(boolean adult) {
+        this.mAdult = adult;
     }
 
     public String getBackdropPath() {
         return mBackdropPath;
     }
 
-    public void setBackdropPath(String mBackdropPath) {
-        this.mBackdropPath = mBackdropPath;
+    public void setBackdropPath(String backdropPath) {
+        this.mBackdropPath = backdropPath;
     }
 
     public BelongsToCollection getBelongsToCollection() {
         return mBelongsToCollection;
     }
 
-    public void setBelongsToCollection(BelongsToCollection mBelongsToCollection) {
-        this.mBelongsToCollection = mBelongsToCollection;
+    public void setBelongsToCollection(BelongsToCollection belongsToCollection) {
+        this.mBelongsToCollection = belongsToCollection;
     }
 
     public int getBudget() {
         return mBudget;
     }
 
-    public void setBudget(int mBudget) {
-        this.mBudget = mBudget;
+    public void setBudget(int budget) {
+        this.mBudget = budget;
     }
 
     public List<Genre> getGenres() {
         return mGenres;
     }
 
-    public void setGenres(List<Genre> mGenres) {
-        this.mGenres = mGenres;
+    public void setGenres(List<Genre> genres) {
+        this.mGenres = genres;
     }
 
     public String getHomePage() {
         return mHomePage;
     }
 
-    public void setHomePage(String mHomePage) {
-        this.mHomePage = mHomePage;
+    public void setHomePage(String homePage) {
+        this.mHomePage = homePage;
     }
 
     public int getMovieId() {
         return mMovieId;
     }
 
-    public void setMovieId(int mMovieId) {
-        this.mMovieId = mMovieId;
+    public void setMovieId(int movieId) {
+        this.mMovieId = movieId;
     }
 
     public String getImdbId() {
         return mImdbId;
     }
 
-    public void setImdbId(String mImdbId) {
-        this.mImdbId = mImdbId;
+    public void setImdbId(String imdbId) {
+        this.mImdbId = imdbId;
     }
 
     public String getOriginalLanguage() {
         return mOriginalLanguage;
     }
 
-    public void setOriginalLanguage(String mOriginalLanguage) {
-        this.mOriginalLanguage = mOriginalLanguage;
+    public void setOriginalLanguage(String originalLanguage) {
+        this.mOriginalLanguage = originalLanguage;
     }
 
     public String getOriginalTitle() {
         return mOriginalTitle;
     }
 
-    public void setOriginalTitle(String mOriginalTitle) {
-        this.mOriginalTitle = mOriginalTitle;
+    public void setOriginalTitle(String originalTitle) {
+        this.mOriginalTitle = originalTitle;
     }
 
     public String getOverview() {
         return mOverview;
     }
 
-    public void setOverview(String mOverview) {
-        this.mOverview = mOverview;
+    public void setOverview(String overview) {
+        this.mOverview = overview;
     }
 
     public Double getPopularity() {
         return mPopularity;
     }
 
-    public void setPopularity(Double mPopularity) {
-        this.mPopularity = mPopularity;
+    public void setPopularity(Double popularity) {
+        this.mPopularity = popularity;
     }
 
     public String getPosterPath() {
         return mPosterPath;
     }
 
-    public void setPosterPath(String mPosterPath) {
-        this.mPosterPath = mPosterPath;
+    public void setPosterPath(String posterPath) {
+        this.mPosterPath = posterPath;
     }
 
     public List<ProductionCompanies> getProductionCompanies() {
         return mProductionCompanies;
     }
 
-    public void setProductionCompanies(List<ProductionCompanies> mProductionCompanies) {
-        this.mProductionCompanies = mProductionCompanies;
+    public void setProductionCompanies(List<ProductionCompanies> productionCompanies) {
+        this.mProductionCompanies = productionCompanies;
     }
 
     public List<ProductionCountries> getProductionCountries() {
         return mProductionCountries;
     }
 
-    public void setProductionCountries(List<ProductionCountries> mProductionCountries) {
-        this.mProductionCountries = mProductionCountries;
+    public void setProductionCountries(List<ProductionCountries> productionCountries) {
+        this.mProductionCountries = productionCountries;
     }
 
     public String getReleaseDate() {
         return mReleaseDate;
     }
 
-    public void setReleaseDate(String mReleaseDate) {
-        this.mReleaseDate = mReleaseDate;
+    public void setReleaseDate(String releaseDate) {
+        this.mReleaseDate = releaseDate;
     }
 
     public int getRevenue() {
         return mRevenue;
     }
 
-    public void setRevenue(int mRevenue) {
-        this.mRevenue = mRevenue;
+    public void setRevenue(int revenue) {
+        this.mRevenue = revenue;
     }
 
     public int getRunTime() {
         return mRunTime;
     }
 
-    public void setRunTime(int mRunTime) {
-        this.mRunTime = mRunTime;
+    public void setRunTime(int runTime) {
+        this.mRunTime = runTime;
     }
 
     public List<SpokenLanguage> getSpokenLanguage() {
         return mSpokenLanguage;
     }
 
-    public void setSpokenLanguage(List<SpokenLanguage> mSpokenLanguage) {
-        this.mSpokenLanguage = mSpokenLanguage;
+    public void setSpokenLanguage(List<SpokenLanguage> spokenLanguage) {
+        this.mSpokenLanguage = spokenLanguage;
     }
 
     public String getStatus() {
         return mStatus;
     }
 
-    public void setStatus(String mStatus) {
-        this.mStatus = mStatus;
+    public void setStatus(String status) {
+        this.mStatus = status;
     }
 
     public String getTagLine() {
         return mTagLine;
     }
 
-    public void setTagLine(String mTagLine) {
-        this.mTagLine = mTagLine;
+    public void setTagLine(String tagLine) {
+        this.mTagLine = tagLine;
     }
 
     public String getTitle() {
         return mTitle;
     }
 
-    public void setTitle(String mTitle) {
-        this.mTitle = mTitle;
+    public void setTitle(String title) {
+        this.mTitle = title;
     }
 
     public boolean isVideo() {
         return mVideo;
     }
 
-    public void setVideo(boolean mVideo) {
-        this.mVideo = mVideo;
+    public void setVideo(boolean video) {
+        this.mVideo = video;
     }
 
     public double getVoteAverage() {
         return mVoteAverage;
     }
 
-    public void setVoteAverage(double mVoteAverage) {
-        this.mVoteAverage = mVoteAverage;
+    public void setVoteAverage(double voteAverage) {
+        this.mVoteAverage = voteAverage;
     }
 
     public int getVoteCount() {
         return mVoteCount;
     }
 
-    public void setVoteCount(int mVoteCount) {
-        this.mVoteCount = mVoteCount;
+    public void setVoteCount(int voteCount) {
+        this.mVoteCount = voteCount;
     }
 
     @Override

@@ -25,6 +25,22 @@ public class SpokenLanguage implements Parcelable {
         destination.writeString(mSpokenLanguageName);
     }
 
+    public String getIso639() {
+        return mIso639;
+    }
+
+    public void setIso639(String iso639) {
+        this.mIso639 = iso639;
+    }
+
+    public String getSpokenLanguageName() {
+        return mSpokenLanguageName;
+    }
+
+    public void setmSpokenLanguageName(String spokenLanguageName) {
+        this.mSpokenLanguageName = spokenLanguageName;
+    }
+
     @Override
     public int describeContents() {
         return 0;

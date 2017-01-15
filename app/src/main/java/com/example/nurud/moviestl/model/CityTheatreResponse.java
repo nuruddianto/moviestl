@@ -18,15 +18,15 @@ public class CityTheatreResponse {
         return mStatus;
     }
 
-    public void setStatus(String mStatus) {
-        this.mStatus = mStatus;
+    public void setStatus(String status) {
+        this.mStatus = status;
     }
 
     public List<CityTheatre> getCitieTheatres() {
         return mCitiesTheatre;
     }
 
-    public void setCitiesTheatre(List<CityTheatre> mCitiesTheatre) {
-        this.mCitiesTheatre = mCitiesTheatre;
+    public void setCitiesTheatre(List<CityTheatre> cityTheatres) {
+        this.mCitiesTheatre = cityTheatres;
     }
 }

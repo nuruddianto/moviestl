@@ -29,16 +29,16 @@ public class CityTheatre implements Parcelable {
         return mId;
     }
 
-    public void setId(String mId) {
-        this.mId = mId;
+    public void setId(String id) {
+        this.mId = id;
     }
 
     public String getCity() {
         return mCity;
     }
 
-    public void setCity(String mCity) {
-        this.mCity = mCity;
+    public void setCity(String city) {
+        this.mCity = city;
     }
 
     @Override

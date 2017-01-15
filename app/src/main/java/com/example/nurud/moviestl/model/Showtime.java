@@ -6,20 +6,57 @@ import android.os.Parcelable;
 import java.util.List;
 
 /**
- * Created by Wim on 7/19/16.
+ * Created by nurud on 12/27/16.
  */
 public class Showtime implements Parcelable {
 
-    private String bioskop;
-    private List<String> jam;
-    private String harga;
+    private String mTheatre;
+    private List<String> mHour;
+    private String mPrice;
+
     public Showtime() {
     }
 
     protected Showtime(Parcel in) {
-        this.bioskop = in.readString();
-        this.jam = in.createStringArrayList();
-        this.harga = in.readString();
+        this.mTheatre = in.readString();
+        this.mHour = in.createStringArrayList();
+        this.mPrice = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.mTheatre);
+        dest.writeStringList(this.mHour);
+        dest.writeString(this.mPrice);
+    }
+
+    public String getTheatre() {
+        return mTheatre;
+    }
+
+    public void setTheatre(String theatre) {
+        this.mTheatre = theatre;
+    }
+
+    public List<String> getHour() {
+        return mHour;
+    }
+
+    public void setHour(List<String> hour) {
+        this.mHour = hour;
+    }
+
+    public String getPrice() {
+        return mPrice;
+    }
+
+    public void setPrice(String price) {
+        this.mPrice = price;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Parcelable.Creator<Showtime> CREATOR = new Parcelable.Creator<Showtime>() {
@@ -33,42 +70,4 @@ public class Showtime implements Parcelable {
             return new Showtime[size];
         }
     };
-
-    public String getBioskop() {
-        return bioskop;
-    }
-
-    public void setBioskop(String bioskop) {
-        this.bioskop = bioskop;
-    }
-
-    public List<String> getJam() {
-        return jam;
-    }
-
-    public void setJam(List<String> jam) {
-        this.jam = jam;
-    }
-
-    public String getHarga() {
-        return harga;
-    }
-
-    public void setHarga(String harga) {
-        this.harga = harga;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.bioskop);
-        dest.writeStringList(this.jam);
-        dest.writeString(this.harga);
-    }
-
-
 }

@@ -23,39 +23,39 @@ public class ReviewResponse {
         return mReviewResponseId;
     }
 
-    public void setReviewId(String mReviewId) {
-        this.mReviewResponseId = mReviewId;
+    public void setReviewId(String reviewId) {
+        this.mReviewResponseId = reviewId;
     }
 
     public int getReviewPage() {
         return mReviewPage;
     }
 
-    public void setReviewPage(int mReviewPage) {
-        this.mReviewPage = mReviewPage;
+    public void setReviewPage(int reviewPage) {
+        this.mReviewPage = reviewPage;
     }
 
     public List<Review> getReview() {
         return mReview;
     }
 
-    public void setmReview(List<Review> mReview) {
-        this.mReview = mReview;
+    public void setmReview(List<Review> reviews) {
+        this.mReview = reviews;
     }
 
     public int getmTotalPages() {
         return mTotalPages;
     }
 
-    public void setmTotalPages(int mTotalPages) {
-        this.mTotalPages = mTotalPages;
+    public void setmTotalPages(int totalPages) {
+        this.mTotalPages = totalPages;
     }
 
     public int getmTotalResults() {
         return mTotalResults;
     }
 
-    public void setmTotalResults(int mTotalResults) {
-        this.mTotalResults = mTotalResults;
+    public void setmTotalResults(int totalResults) {
+        this.mTotalResults = totalResults;
     }
 }

@@ -37,32 +37,32 @@ public class Review implements Parcelable {
         return mReviewId;
     }
 
-    public void setReviewId(String mReviewId) {
-        this.mReviewId = mReviewId;
+    public void setReviewId(String reviewId) {
+        this.mReviewId = reviewId;
     }
 
     public String getAuthor() {
         return mAuthor;
     }
 
-    public void setAuthor(String mAuthor) {
-        this.mAuthor = mAuthor;
+    public void setAuthor(String author) {
+        this.mAuthor = author;
     }
 
     public String getReviewContent() {
         return mReviewContent;
     }
 
-    public void setReviewContent(String mContent) {
-        this.mReviewContent = mContent;
+    public void setReviewContent(String content) {
+        this.mReviewContent = content;
     }
 
     public String getUrl() {
         return mUrl;
     }
 
-    public void setmUrl(String mUrl) {
-        this.mUrl = mUrl;
+    public void setmUrl(String url) {
+        this.mUrl = url;
     }
 
     @Override

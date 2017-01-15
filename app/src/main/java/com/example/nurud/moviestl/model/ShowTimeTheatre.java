@@ -35,24 +35,24 @@ public class ShowTimeTheatre implements Parcelable {
         return mTheatre;
     }
 
-    public void setTheatre(String mTheatre) {
-        this.mTheatre = mTheatre;
+    public void setTheatre(String theatre) {
+        this.mTheatre = theatre;
     }
 
     public List<String> getTime() {
         return mTime;
     }
 
-    public void setTime(List<String> mTime) {
-        this.mTime = mTime;
+    public void setTime(List<String> time) {
+        this.mTime = time;
     }
 
     public String getPrice() {
         return mPrice;
     }
 
-    public void setPrice(String mPrice) {
-        this.mPrice = mPrice;
+    public void setPrice(String price) {
+        this.mPrice = price;
     }
 
     @Override

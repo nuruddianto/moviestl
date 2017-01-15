@@ -29,16 +29,16 @@ public class ProductionCountries implements Parcelable {
         return mIso3166;
     }
 
-    public void setIso3166(String mIso3166) {
-        this.mIso3166 = mIso3166;
+    public void setIso3166(String iso3166) {
+        this.mIso3166 = iso3166;
     }
 
     public String getProductionCountriesName() {
         return mProductionCountriesName;
     }
 
-    public void setProductionCountriesName(String mProductionCountriesName) {
-        this.mProductionCountriesName = mProductionCountriesName;
+    public void setProductionCountriesName(String productionCountriesName) {
+        this.mProductionCountriesName = productionCountriesName;
     }
 
     @Override
