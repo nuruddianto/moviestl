@@ -102,7 +102,7 @@ public class MovieDetailFragment extends Fragment {
         mImageMovie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+                ApiInterface apiInterface = BaseApiClient.getTmdbClient().create(ApiInterface.class);
                 Call<MovieVideoResponse> call = apiInterface.getMovieVideo(mCurrentMovie.getId(), RestConstant.TMDB_API_KEY);
                 call.enqueue(new Callback<MovieVideoResponse>() {
                     @Override

@@ -26,7 +26,6 @@ import com.example.nurud.moviestl.model.MovieVideoResponse;
 import com.example.nurud.moviestl.rest.ApiInterface;
 import com.example.nurud.moviestl.rest.BaseApiClient;
 import com.example.nurud.moviestl.rest.RestConstant;
-import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -79,7 +78,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         if (mIntent != null) {
             mCurrentMovie = mIntent.getParcelableExtra(BUNDLE_MOVIE);
         }
-        mApiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+        mApiInterface = BaseApiClient.getTmdbClient().create(ApiInterface.class);
         getMovieDetail();
     }
 

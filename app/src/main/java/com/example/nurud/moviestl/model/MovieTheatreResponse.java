@@ -1,5 +1,7 @@
 package com.example.nurud.moviestl.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -7,11 +9,13 @@ import java.util.List;
  */
 
 public class MovieTheatreResponse {
-
+    @SerializedName("status")
     private String mStatus;
-    private String mMessage;
+    @SerializedName("kota")
     private String mCity;
+    @SerializedName("date")
     private String mDate;
+    @SerializedName("data")
     private List<MovieTheatre> mMovieTheatre;
 
     public String getStatus() {
@@ -20,14 +24,6 @@ public class MovieTheatreResponse {
 
     public void setStatus(String mStatus) {
         this.mStatus = mStatus;
-    }
-
-    public String getMessage() {
-        return mMessage;
-    }
-
-    public void setMessage(String mMessage) {
-        this.mMessage = mMessage;
     }
 
     public String getCity() {
@@ -42,15 +38,15 @@ public class MovieTheatreResponse {
         return mDate;
     }
 
-    public void setDate(String mDate) {
-        this.mDate = mDate;
+    public void setDate(String date) {
+        this.mDate = date;
     }
 
     public List<MovieTheatre> getMovieTheatre() {
         return mMovieTheatre;
     }
 
-    public void setMovieTheatre(List<MovieTheatre> mMovieTheatre) {
-        this.mMovieTheatre = mMovieTheatre;
+    public void setMovieTheatre(List<MovieTheatre> movieTheatres) {
+        this.mMovieTheatre = movieTheatres;
     }
 }

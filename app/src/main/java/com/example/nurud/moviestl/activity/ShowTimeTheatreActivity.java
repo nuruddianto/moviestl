@@ -28,13 +28,13 @@ public class ShowTimeTheatreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.inject(this);
         setContentView(R.layout.activity_show_time_theatre);
+        ButterKnife.inject(this);
         Intent intent = getIntent();
         mMovieTheatre = intent.getParcelableExtra(BUNDLE_SHOW_TIME_THEATRE);
         mMovieDate = intent.getStringExtra(BUNDLE_MOVIE_DATE_THEATRE);
 
-        ShowTimeTheatreAdapter adapter = new ShowTimeTheatreAdapter(mMovieTheatre.getShowTime(), R.layout.item_time_theatre, this );
+        ShowTimeTheatreAdapter adapter = new ShowTimeTheatreAdapter(mMovieTheatre.getShowTime(), this );
         mShowTimeRecycler.setLayoutManager(new LinearLayoutManager(this));
         mShowTimeRecycler.setAdapter(adapter);
     }

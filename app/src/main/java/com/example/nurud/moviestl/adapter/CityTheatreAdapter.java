@@ -22,10 +22,10 @@ public class CityTheatreAdapter extends RecyclerView.Adapter<CityTheatreAdapter.
     private int mRowLayout;
     private Context mContext;
 
-    public CityTheatreAdapter(List<CityTheatre> mCityList, int mRowLayout, Context mContext) {
-        this.mCityList = mCityList;
-        this.mRowLayout = mRowLayout;
-        this.mContext = mContext;
+    public CityTheatreAdapter(List<CityTheatre> cityTheatres, int rowLayout, Context context) {
+        this.mCityList = cityTheatres;
+        this.mRowLayout = rowLayout;
+        this.mContext = context;
     }
 
     public class CityViewHolder extends RecyclerView.ViewHolder {

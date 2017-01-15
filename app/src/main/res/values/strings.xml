@@ -26,6 +26,7 @@
     <string name="home_dashboard_menu_pager">Home</string>
     <string name="upcoming_dashboard_menu_pager">Upcoming</string>
     <string name="top_rated">Top Rated</string>
+    <string name="now_playing">Now Playing</string>
 
     <!--Log-->
     <string name="log_success_top_rated_movies">retrofit :: jumlah movie yang didapat: %d</string>

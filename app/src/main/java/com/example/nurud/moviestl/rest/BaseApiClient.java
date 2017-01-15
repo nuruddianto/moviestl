@@ -2,6 +2,9 @@ package com.example.nurud.moviestl.rest;
 
 import android.support.v7.widget.RecyclerView;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -15,7 +18,7 @@ public class BaseApiClient {
     public static Retrofit retrofit = null;
     public static Retrofit mIbacorRetrofit;
 
-    public static Retrofit getClient(){
+    public static Retrofit getTmdbClient(){
         if(retrofit == null){
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -33,5 +36,13 @@ public class BaseApiClient {
                     .build();
         }
         return mIbacorRetrofit;
+    }
+
+    private OkHttpClient builder(){
+        OkHttpClient.Builder okHttpClient = new OkHttpClient().newBuilder();
+        okHttpClient.connectTimeout(20, TimeUnit.SECONDS);
+        okHttpClient.writeTimeout(20, TimeUnit.SECONDS);
+        okHttpClient.readTimeout(90, TimeUnit.SECONDS);
+        return  okHttpClient.build();
     }
 }

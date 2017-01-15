@@ -52,7 +52,7 @@ public class UpcomingFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ApiInterface ApiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+        ApiInterface ApiInterface = BaseApiClient.getTmdbClient().create(ApiInterface.class);
 
         final RecyclerView mUpcomingRecycler = (RecyclerView) view.findViewById(R.id.upcoming_recycler);
         mUpcomingRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));

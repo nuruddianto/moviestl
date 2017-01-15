@@ -3,11 +3,15 @@ package com.example.nurud.moviestl.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by nurud on 07/01/2017.
  */
 public class CityTheatre implements Parcelable {
+    @SerializedName("id")
     private String mId;
+    @SerializedName("kota")
     private String mCity;
 
     public CityTheatre(Parcel parcel) {

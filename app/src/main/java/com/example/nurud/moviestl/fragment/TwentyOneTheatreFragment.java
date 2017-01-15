@@ -48,6 +48,8 @@ public class TwentyOneTheatreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container,
+                savedInstanceState);
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_twenty_one_theatre, container, false);
     }
@@ -56,6 +58,7 @@ public class TwentyOneTheatreFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.inject(this, view);
+        
         mTheatreRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ApiInterface apiInterface = BaseApiClient.getIbacorClient().create(ApiInterface.class);

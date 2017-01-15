@@ -103,6 +103,8 @@ public class PosterTypeAdapter implements ExpandableListAdapter {
             parentHolder.indicator.setImageResource(R.drawable.ic_keyboard_arrow_up_black_24px);
         }
 
+
+
         return view;
     }
 

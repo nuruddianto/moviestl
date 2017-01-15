@@ -3,16 +3,23 @@ package com.example.nurud.moviestl.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
  * Created by nurud on 07/01/2017.
  */
 public class MovieTheatre implements Parcelable{
+    @SerializedName("movie")
     private String mMovie;
+    @SerializedName("poster")
     private String mPoster;
+    @SerializedName("genre")
     private String mGenre;
+    @SerializedName("duration")
     private String mDuration;
+    @SerializedName("jadwal")
     private List<ShowTimeTheatre> mShowTime;
 
     public MovieTheatre(Parcel parcel) {

@@ -26,10 +26,10 @@ public class MovieTheatreAdapter extends RecyclerView.Adapter<MovieTheatreAdapte
     private String mMovieDate;
     private Context mContext;
 
-    public MovieTheatreAdapter(List<MovieTheatre> mMovieTheatre, int mRowLayout, Context mContext, String movieDate) {
-        this.mMovieTheatre = mMovieTheatre;
-        this.mRowLayout = mRowLayout;
-        this.mContext = mContext;
+    public MovieTheatreAdapter(List<MovieTheatre> movieTheatres, int rowLayout, Context context, String movieDate) {
+        this.mMovieTheatre = movieTheatres;
+        this.mRowLayout = rowLayout;
+        this.mContext = context;
         this.mMovieDate = movieDate;
     }
 

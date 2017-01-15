@@ -37,9 +37,8 @@ public class MovieTheatreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.inject(this);
         setContentView(R.layout.activity_movie_theatre);
-
+        ButterKnife.inject(this);
         mIntent = getIntent();
         if(mIntent != null){
             mCityTheatre = mIntent.getParcelableExtra(BUNDLE_CITY_THEATRE);
@@ -54,7 +53,7 @@ public class MovieTheatreActivity extends AppCompatActivity {
     }
 
     protected void getData() {
-        ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+        ApiInterface apiInterface = BaseApiClient.getIbacorClient().create(ApiInterface.class);
         Call<MovieTheatreResponse> call = apiInterface.getMoviesTheatre(RestConstant.IBACOR_API_KEY, mCityTheatre.getId());
         call.enqueue(new Callback<MovieTheatreResponse>() {
             @Override

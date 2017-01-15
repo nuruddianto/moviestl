@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.activity.MovieDetailActivity;
 import com.example.nurud.moviestl.adapter.ReviewAdapter;
-import com.example.nurud.moviestl.adapter.TopRatedAdapter;
 import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.Review;
 import com.example.nurud.moviestl.model.ReviewResponse;
@@ -76,8 +75,7 @@ public class ReviewFragment extends Fragment {
 
         final RecyclerView reviewRecycler = (RecyclerView)view.findViewById(R.id.review_recycler);
         reviewRecycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        ApiInterface apiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+        ApiInterface apiInterface = BaseApiClient.getTmdbClient().create(ApiInterface.class);
         Call<ReviewResponse> call = apiInterface.getMovieReviews(mCurrentMovie.getId() ,RestConstant.TMDB_API_KEY);
         call.enqueue(new Callback<ReviewResponse>() {
             @Override

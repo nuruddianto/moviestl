@@ -19,7 +19,7 @@
             android:textSize="17sp"
             android:textStyle="bold"/>
 
-        <example.nurud.moviestl.utility.FlowLayout
+        <com.example.nurud.moviestl.utility.FlowLayout
             android:id="@+id/lyTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

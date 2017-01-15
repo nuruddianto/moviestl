@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -66,7 +65,7 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
                              Bundle savedInstanceState) {
         mActivity = getActivity();
         mContext = getContext();
-        mApiInterface = BaseApiClient.getClient().create(ApiInterface.class);
+        mApiInterface = BaseApiClient.getTmdbClient().create(ApiInterface.class);
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
@@ -88,7 +87,37 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
     private void setAdapter() {
         mPosterTypeAdapter = new PosterTypeAdapter(mContext, mPosterTypes);
         mPosterListView.setAdapter(mPosterTypeAdapter);
-        mPosterListView.expandGroup(0);
+        for(int i =0; i < 3; i++){
+            mPosterListView.expandGroup(i);
+        }
+        int totalHeight = 0;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(mPosterListView.getWidth(),
+                View.MeasureSpec.EXACTLY);
+        for (int i = 0; i < mPosterTypeAdapter.getGroupCount(); i++) {
+            View groupItem = mPosterTypeAdapter.getGroupView(i, false, null, mPosterListView);
+            groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+
+            totalHeight += groupItem.getMeasuredHeight();
+
+            if (((mPosterListView.isGroupExpanded(i)))
+                    || ((!mPosterListView.isGroupExpanded(i)) )){
+                for (int j = 0; j < mPosterTypeAdapter.getChildrenCount(i); j++) {
+                    View listItem = mPosterTypeAdapter.getChildView(i, j, false, null,
+                            mPosterListView);
+                    listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+                    totalHeight += listItem.getMeasuredHeight();
+                }
+            }
+        }
+
+        ViewGroup.LayoutParams params = mPosterListView.getLayoutParams();
+        int height = totalHeight + 100
+                + (mPosterListView.getDividerHeight() * (mPosterTypeAdapter.getGroupCount() - 1));
+        if (height < 10)
+            height = 200;
+        params.height = height;
+        mPosterListView.setLayoutParams(params);
+        mPosterListView.requestLayout();
     }
 
     private void getTopRatedData() {
@@ -97,7 +126,7 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> topRatedList = response.body().getResults();
-                PosterType topRated = new PosterType("Top Rated", topRatedList);
+                PosterType topRated = new PosterType(getString(R.string.top_rated), topRatedList);
                 mPosterTypes.add(topRated);
                 getNowPlayingData();
                 Log.d(TAG, String.format(mContext.getString(R.string.log_success_top_rated_movies), topRatedList.size()));
@@ -117,7 +146,7 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 List<Movie> nowPlayingList = response.body().getResults();
-                PosterType nowPlaying = new PosterType("Now Playing", nowPlayingList);
+                PosterType nowPlaying = new PosterType(getString(R.string.now_playing), nowPlayingList);
                 mPosterTypes.add(nowPlaying);
                 getUpcomingData();
             }
@@ -125,7 +154,6 @@ public class HomeFragment extends Fragment implements BaseSliderView.OnSliderCli
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
                 Log.e(TAG, t.toString());
-                Toast.makeText(getContext(), "Fail to get upcoming movie", Toast.LENGTH_LONG);
             }
         });
     }

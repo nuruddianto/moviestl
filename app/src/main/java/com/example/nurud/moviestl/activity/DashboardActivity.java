@@ -4,12 +4,17 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.nurud.moviestl.R;
 import com.example.nurud.moviestl.adapter.DashboardViewPagerAdapter;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -23,12 +28,16 @@ public class DashboardActivity extends AppCompatActivity {
     protected TabLayout mTabLayout;
     @InjectView(R.id.dashboard_viewpager)
     protected ViewPager mViewPager;
+    @InjectView(R.id.drawer_layout)
+    protected DrawerLayout mDrawerLayout;
+    @InjectView(R.id.left_drawer_list)
+    protected ListView mDrawerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
+        ButterKnife.inject(this);
         DashboardViewPagerAdapter adapter = new DashboardViewPagerAdapter(getSupportFragmentManager(), this);
 
         mViewPager.setOffscreenPageLimit(3);

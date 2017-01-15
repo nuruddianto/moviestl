@@ -12,6 +12,7 @@ import com.example.nurud.moviestl.model.ShowTimeTheatre;
 import com.example.nurud.moviestl.model.Showtime;
 import com.example.nurud.moviestl.utility.FlowLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,24 +20,21 @@ import java.util.List;
  */
 public class ShowTimeTheatreAdapter extends RecyclerView.Adapter<ShowTimeTheatreAdapter.ShowTimeViewHolder> {
     private List<ShowTimeTheatre> mShowTimeTheatres;
-    private List<Showtime> mShowTime;
-    private int mRowLayout;
     private Context mContext;
 
-    public ShowTimeTheatreAdapter(List<ShowTimeTheatre> mShowTimeTheatres, int mRowLayout, Context mContext) {
-        this.mShowTimeTheatres = mShowTimeTheatres;
-        this.mRowLayout = mRowLayout;
-        this.mContext = mContext;
+    public ShowTimeTheatreAdapter(List<ShowTimeTheatre> showTimeTheatres, Context context) {
+        this.mShowTimeTheatres = showTimeTheatres;
+        this.mContext = context;
     }
 
     static class ShowTimeViewHolder extends RecyclerView.ViewHolder {
-        TextView showTime;
+        TextView showLocation;
         FlowLayout lyTime;
         TextView price;
 
         public ShowTimeViewHolder(View v) {
             super(v);
-            showTime = (TextView)v.findViewById(R.id.show_time_theatre);
+            showLocation = (TextView)v.findViewById(R.id.show_time_theatre);
             lyTime = (FlowLayout)v.findViewById(R.id.lyTime);
             price = (TextView)v.findViewById(R.id.price_theatre);
         }
@@ -44,21 +42,21 @@ public class ShowTimeTheatreAdapter extends RecyclerView.Adapter<ShowTimeTheatre
 
     @Override
     public ShowTimeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(mRowLayout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_show_time_theatre, parent, false);
         return new ShowTimeViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ShowTimeViewHolder holder, int position) {
-        ShowTimeTheatre currentShowTime = mShowTimeTheatres.get(position);
-        holder.showTime.setText(currentShowTime.getTheatre());
+        final ShowTimeTheatre currentShowTime = mShowTimeTheatres.get(position);
         holder.price.setText(currentShowTime.getPrice());
+        holder.showLocation.setText(currentShowTime.getTheatre());
 
-        final Showtime showtime = mShowTime.get(position);
+
         for(int i=0; i < currentShowTime.getTime().size(); i++){
-            View view = LayoutInflater.from(mContext).inflate(R.layout.item_show_time_theatre, holder.lyTime, false);
+            View view = LayoutInflater.from(mContext).inflate(R.layout.item_time_theatre, holder.lyTime, false);
             TextView time = (TextView) view.findViewById(R.id.time);
-            time.setText(showtime.getJam().get(i));
+            time.setText(currentShowTime.getTime().get(i));
             holder.lyTime.addView(view);
         }
     }
