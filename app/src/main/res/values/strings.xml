@@ -34,4 +34,7 @@
     <string name="genre">Genre</string>
     <string name="log_success_hit_movie_detail">movie detail yang didapat : %s</string>
     <string name="log_twenty_one_theatre">Jumlah kota yang didapat : %d</string>
+
+    <!--navigation drawer-->
+    <string name="navigation_indonesia_theatre">Theatre</string>
 </resources>

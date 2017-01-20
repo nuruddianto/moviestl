@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nurud.moviestl">
+          package="com.example.nurud.moviestl">
 
-    <uses-sdk android:targetSdkVersion="23" />
+    <uses-sdk android:targetSdkVersion="23"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -18,15 +17,17 @@
         android:theme="@style/AppTheme.NoActionBar.Settings">
         <activity android:name=".activity.DashboardActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MovieDetailActivity" />
-        <activity android:name=".activity.MovieTheatreActivity" />
-        <activity android:name=".activity.ShowTimeTheatreActivity"></activity>
+        <activity android:name=".activity.MovieDetailActivity"/>
+        <activity android:name=".activity.MovieTheatreActivity"/>
+        <activity android:name=".activity.ShowTimeTheatreActivity"/>
+        <activity android:name=".activity.TwentyOneActivity">
+        </activity>
     </application>
 
 </manifest>

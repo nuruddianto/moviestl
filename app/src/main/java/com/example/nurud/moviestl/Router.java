@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.example.nurud.moviestl.activity.MovieDetailActivity;
 import com.example.nurud.moviestl.activity.MovieTheatreActivity;
 import com.example.nurud.moviestl.activity.ShowTimeTheatreActivity;
+import com.example.nurud.moviestl.activity.TwentyOneActivity;
 import com.example.nurud.moviestl.model.CityTheatre;
 import com.example.nurud.moviestl.model.Movie;
 import com.example.nurud.moviestl.model.MovieTheatre;
@@ -31,6 +32,11 @@ public class Router {
         Intent intent = new Intent(activity, ShowTimeTheatreActivity.class);
         intent.putExtra(ShowTimeTheatreActivity.BUNDLE_SHOW_TIME_THEATRE, movieTheatre);
         intent.putExtra(ShowTimeTheatreActivity.BUNDLE_MOVIE_DATE_THEATRE, movieDate);
+        activity.startActivity(intent);
+    }
+
+    public static void goToTwentyOne(Activity activity){
+        Intent intent = new Intent(activity, TwentyOneActivity.class);
         activity.startActivity(intent);
     }
 }

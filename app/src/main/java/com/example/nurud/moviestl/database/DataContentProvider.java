@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
@@ -40,7 +41,29 @@ public class DataContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        return null;
+        Cursor cursor;
+        int uriType = URI_MATCHER.match(uri);
+        switch ( uriType){
+            case GENRE:
+                cursor = getBasiqQuery(GenreTable.TABLE_NAME, projection, selection, selectionArgs, sortOrder);
+                break;
+            case CITY_THEATRE:
+                cursor = getBasiqQuery(CityTheatreTable.TABLE_NAME, projection, selection, selectionArgs, sortOrder);
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
+
+        if(cursor!= null){
+            cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        }
+        return cursor;
+    }
+
+    private Cursor getBasiqQuery(String tableName, String[] projection, String selection, String[] selectionArgs, String sortOrder){
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+        queryBuilder.setTables(tableName);
+        return queryBuilder.query(mDatabaseHelper.getWritableDatabase(), projection, selection, selectionArgs, null, null, sortOrder);
     }
 
     @Nullable
@@ -107,6 +130,7 @@ public class DataContentProvider extends ContentProvider {
             default:
                 throw new IllegalArgumentException("Unknown URI: "+uri);
         }
-        return 0;
+        getContext().getContentResolver().notifyChange(uri, null);
+        return updatedRows;
     }
 }

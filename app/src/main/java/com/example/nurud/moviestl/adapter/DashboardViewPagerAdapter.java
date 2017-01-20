@@ -29,8 +29,6 @@ public class DashboardViewPagerAdapter extends FragmentPagerAdapter {
         mTitleFragment.add(context.getString(R.string.upcoming_dashboard_menu_pager));
         mFragments.add(new TopRatedFragment());
         mTitleFragment.add(context.getString(R.string.top_rated));
-        mFragments.add(new TwentyOneTheatreFragment());
-        mTitleFragment.add("Theatre");
     }
 
     @Override
